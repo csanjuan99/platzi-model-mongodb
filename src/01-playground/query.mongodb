@@ -1,0 +1,3 @@
+use("moni-marketing-dev")
+
+db.campaigns.find().count()
