@@ -1,0 +1,10 @@
+use("moni-marketing-dev")
+
+db.campaigns.insertOne({
+    name: "Test Campaign",
+    companyId: 'f7dc44d5-6fab-4c15-b101-f9ef40e4d3d2',
+    status: "PROGRAMED",
+    type: "SMS",
+    executionAt: new Date(),
+    createdAt: new Date(),
+})

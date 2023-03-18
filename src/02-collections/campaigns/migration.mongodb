@@ -1,0 +1,9 @@
+use("moni-marketing-dev")
+
+db.getCollectionInfos()
+
+
+db.runCommand({
+    collMod: '<collectionName>',
+    validator: '<schemaToUpdate>'
+})

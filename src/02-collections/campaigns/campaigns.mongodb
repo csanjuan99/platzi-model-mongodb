@@ -1,0 +1,47 @@
+use("moni-marketing-dev")
+
+db.campaigns.drop() // Documents & Schema will be dropped
+
+db.createCollection("campaigns", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: ["name", "companyId", "type", "executionAt"],
+            additionalProperties: false,
+            properties: {
+                _id: {
+                    bsonType: 'objectId'
+                },
+                name: {
+                    bsonType: "string",
+                    pattern: "^.{1,80}$",
+                    description: "must be a string and is required"
+                },
+                status: {
+                    enum: ['PROGRAMED', 'FINISHED'],
+                    description: "must be a string"
+                },
+                type: {
+                    enum: ['EMAIL', 'SMS'],
+                    description: "must be a string and is required"
+                },
+                companyId: {
+                    bsonType: "string",
+                    description: "must be a string and required"
+                },
+                executionAt: {
+                    bsonType: "date",
+                    description: "must be a date and is required"
+                },
+                createdAt: {
+                    bsonType: "date",
+                    description: "must be a date"
+                },
+                updatedAt: {
+                    bsonType: "date",
+                    description: "must be a date"
+                }
+            }
+        }
+    }
+})
