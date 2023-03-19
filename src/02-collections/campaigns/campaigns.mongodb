@@ -33,6 +33,37 @@ db.createCollection("campaigns", {
                     bsonType: "date",
                     description: "must be a date and is required"
                 },
+                stats: {
+                    bsonType: "object",
+                    required: ["opened", "clicked", "unsubscribed", "bounced", "delivered", "dropped"],
+                    additionalProperties: false,
+                    properties: {
+                            opened: {
+                                bsonType: "int",
+                                description: "must be a int"
+                            },
+                            clicked: {
+                                bsonType: "int",
+                                description: "must be a int"
+                            },
+                            unsubscribed: {
+                                bsonType: "int",
+                                description: "must be a int"
+                            },
+                            bounced: {
+                                bsonType: "int",
+                                description: "must be a int"
+                            },
+                            delivered: {
+                                bsonType: "int",
+                                description: "must be a int"
+                            },
+                            dropped: {
+                                bsonType: "int",
+                                description: "must be a int"
+                            }
+                        }
+                },
                 createdAt: {
                     bsonType: "date",
                     description: "must be a date"

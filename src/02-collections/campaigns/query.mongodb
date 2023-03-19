@@ -1,0 +1,12 @@
+use("moni-marketing-dev")
+
+db.campaigns.aggregate([
+    {
+        $lookup: {
+        from: reports,
+        localField: _id,
+        foreignField: campaignId,
+        as: reports
+        }
+    }
+])
